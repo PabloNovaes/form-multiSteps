@@ -12,7 +12,8 @@ const formMethods = {
     formSteps.forEach((step) => step.classList.remove("active"));
     return formSteps[currentStep].classList.toggle("active");
   },
-  sendForm() {
+  sendForm(){
+    if(!formMethods.checkValues()) return
     return alert("enviado");
   },
 };
@@ -21,7 +22,7 @@ buttons.forEach((btn) => {
   btn.addEventListener("click", (event) => {
     const actions = {
       next() {
-        if (!formMethods.checkValues()) return;
+       if (!formMethods.checkValues()) return;
         currentStep++;
         formMethods.updateActiveStep();
       },
@@ -37,11 +38,7 @@ buttons.forEach((btn) => {
     const allInputs = Array.from(form.querySelectorAll("input"));
 
     const action = event.target.dataset.action;
-    if (action !== "send") return actions[action]();
-    else {
-      const allIsFilled = allInputs.every((input) => input.value.trim() !== "");
-      if (allIsFilled) return actions[action]();
-    }
+    actions[action]();
   });
 });
 
