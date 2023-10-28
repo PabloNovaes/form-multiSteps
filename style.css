@@ -26,7 +26,7 @@ body {
 }
 
 form {
-  width: calc(100% - 20rem);
+  width: 100%;
   min-width: 34rem;
   padding: 1rem;
   max-width: 50rem;
@@ -67,6 +67,7 @@ form {
   & textarea {
     resize: none;
     padding-top: 0.6rem;
+    min-height: 7rem !important;
   }
 
   & button {
@@ -75,7 +76,6 @@ form {
     max-height: 5.2rem;
     font-weight: 600;
     border: none;
-    border-radius: 1.2rem;
     padding: 1rem;
     margin-block: 3rem 0rem;
     cursor: pointer;
@@ -88,7 +88,8 @@ form {
   }
 
   & input,
-  button {
+  button, textarea {
+    border-radius: 1rem;
     transition: all 0.2s ease;
     padding: 1.6rem 0;
     max-height: 5rem;
@@ -142,6 +143,11 @@ label {
     border-radius: 1.2rem;
     width: 6rem;
 
+    & i {
+      color: var(--primary-color);
+      font-size: 1.8rem;
+    }
+
     & > * {
       transition: all 0.15s;
     }
@@ -151,11 +157,6 @@ label {
       & i {
         color: var(--text-color);
       }
-    }
-
-    & i {
-      color: var(--primary-color);
-      font-size: 1.8rem;
     }
   }
 }
