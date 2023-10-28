@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module" src="./scripts/main.js" defer></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="style.css" />
     <title>Formulario</title>
   </head>
@@ -58,9 +59,19 @@
           <label for="rua">rua</label>
           <input required placeholder="Digite sua rua" type="text" name="rua" />
         </div>
+        <label for="text">Escreva algo</label>
+        <textarea
+          placeholder="Envie uma sugestão"
+          name="text"
+          id=""
+          cols="30"
+          rows="10"
+        ></textarea>
 
         <div id="options">
-          <button data-action="prev">Voltar</button>
+          <button data-action="prev">
+            <i class="ph-bold ph-caret-left"></i>
+          </button>
           <button data-action="send">Enviar</button>
         </div>
       </div>
