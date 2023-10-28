@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;800&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  font-size: 62.5%;
+  --background: rgb(18, 18, 20);
+  --form-background: rgb(32, 32, 36);
+  --primary-color: rgb(106, 175, 49);
+  --text-color: rgb(204, 204, 204);
+  --base-color: rgb(40, 39, 44);
+}
+
+body {
+  height: 100dvh;
+  background-color: var(--background);
+  display: flex;
+  align-items: center;
+  padding-inline: 2rem;
+}
+
+form {
+  width: calc(100% - 20rem);
+  min-width: 34rem;
+  min-height: 45rem;
+  padding: 1rem;
+  max-width: 50rem;
+  display: grid;
+  margin: 0 auto;
+  color: var(--text-color);
+  overflow: hidden;
+
+  & header {
+    display: grid;
+    place-content: center;
+    padding-bottom: 5rem;
+    font-weight: 800;
+    font-size: 3rem;
+  }
+
+  & label {
+    font-size: 1.2rem;
+    margin-bottom: 0.4rem;
+    padding-left: 0.4rem;
+    font-weight: 400;
+  }
+
+  & input {
+    text-indent: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.6rem;
+    font-size: 1.2rem;
+    background-color: var(--form-background) !important;
+    border: none;
+    outline: none;
+    color: var(--text-color);
+
+    &:focus {
+      box-shadow: 0 0 0 1px var(--primary-color);
+    }
+  }
+
+  & button {
+    background-color: var(--primary-color);
+    color: var(--base-color);
+    max-height: 5.2rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.8rem;
+    padding: 1rem;
+    margin-block: 3rem 0rem;
+    cursor: pointer;
+    width: 50%;
+    justify-self: flex-end;
+
+    &:hover {
+      filter: brightness(0.7);
+    }
+  }
+
+  & input,
+  button {
+    transition: all 0.2s ease;
+    padding: 1.6rem 0;
+  }
+}
+
+.form-step {
+  display: grid;
+}
+
+.form-step.active {
+  animation: show 0.2s 200ms backwards;
+}
+
+.form-step {
+  animation: slide 0.2s 200ms forwards;
+}
+
+.hide {
+  display: none;
+}
+input,
+label {
+  width: 100%;
+}
+
+#name-our-lastname {
+  display: flex;
+  gap: 1rem;
+
+  & label {
+    padding-left: 0.4rem;
+  }
+}
+
+.input-wrapper {
+  display: grid;
+  width: 100%;
+}
+
+#options {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+
+  & button:nth-child(1) {
+    background-color: transparent;
+    border: solid 2px var(--primary-color);
+    width: 30%;
+    color: var(--text-color);
+  }
+}
+
+@keyframes show {
+  0% {
+    scale: 0.8;
+    opacity: 0;
+  }
+}
+
+@keyframes slide {
+  100% {
+    transform: translateX(110%);
+  }
+}
+
+@media (max-width: 370px) {
+  form {
+    min-width: 30rem;
+    & input {
+      font-size: 1.2rem;
+    }
+  }
+}
