@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>      
+    </script>
+    
     <script type="module" src="./scripts/main.js" defer></script>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="style.css" />
@@ -18,7 +21,6 @@
           <div class="input-wrapper">
             <label for="name">Nome</label>
             <input
-              required
               placeholder="Digite seu nome"
               type="text"
               name="name"
@@ -27,7 +29,6 @@
           <div class="input-wrapper">
             <label for="sobrenome">Sobrenome</label>
             <input
-              required
               placeholder="Digite seu sobrenome"
               type="text"
               name="sobrenome"
@@ -36,20 +37,18 @@
         </div>
         <label for="email">E-mail</label>
         <input
-          required
           placeholder="Digite seu email"
           type="email"
           name="email"
         />
         <label for="cep">Cep</label>
-        <input required placeholder="Digite seu cep" type="text" name="cep" />
+        <input placeholder="Digite seu cep" type="text" name="cep" />
         <button data-action="next">Continuar</button>
       </div>
       <div class="form-step hide">
         <div class="input-wrapper">
           <label for="numero">Numero</label>
           <input
-            required
             placeholder="Digite seu numero"
             type="tel"
             name="numero"
@@ -57,7 +56,7 @@
         </div>
         <div class="input-wrapper">
           <label for="rua">rua</label>
-          <input required placeholder="Digite sua rua" type="text" name="rua" />
+          <input placeholder="Digite sua rua" type="text" name="rua" />
         </div>
         <label for="text">Escreva algo</label>
         <textarea
@@ -70,7 +69,7 @@
 
         <div id="options">
           <button data-action="prev">
-            <i data-action="prev" class="ph-bold ph-caret-left"></i>
+            <i data-action="prev" class="ph-bold ph-caret-double-left"></i>
           </button>
           <button data-action="send">Enviar</button>
         </div>
