@@ -1,8 +1,11 @@
 import { success, error } from './sweet.js'
+import { searchAdress } from './api.js'
+
 let currentStep = 0;
 const form = document.querySelector("form");
 const formSteps = form.querySelectorAll(".form-step");
 const buttons = document.querySelectorAll("form button");
+const cepInput = document.querySelector("#cep")
 
 const formMethods = {
   checkValues() {
@@ -11,15 +14,19 @@ const formMethods = {
       return input.value !== ""
     });
   },
-  checkStepValues(){
+  checkStepValues() {
     const inputs = Array.from(form.querySelectorAll(".form-step.active input"));
-     return inputs.every(input => {
-       return input.value !== ""
-     });
+    return inputs.every(input => {
+      return input.value !== ""
+    });
   },
   updateActiveStep() {
     formSteps.forEach((step) => step.classList.remove("active"));
     return formSteps[currentStep].classList.toggle("active");
+  },
+  async autoCompleteAdress(cep) {
+    const data = await searchAdress(cep)
+return data
   },
   sendForm() {
     if (!formMethods.checkValues()) {
@@ -34,11 +41,11 @@ buttons.forEach((btn) => {
   btn.addEventListener("click", (event) => {
     const actions = {
       next() {
-        if(!formMethods.checkStepValues()){
+        if (!formMethods.checkStepValues()) {
           return error("Preencha todos os campos")
         }
-          currentStep++;
-          formMethods.updateActiveStep();
+        currentStep++;
+        formMethods.updateActiveStep();
       },
       prev() {
         currentStep--;
@@ -67,3 +74,13 @@ formSteps.forEach((step) => {
     formSteps[currentStep].classList.remove("hide");
   });
 });
+
+cepInput.addEventListener("keyup", async()=>{
+  const value = cepInput.value
+  if(value.length < 8) return
+const data = await formMethods.autoCompleteAdress(value)
+   const {logradouro, bairro, localidade} = data
+   document.querySelector("input[name=rua]").value = logradouro
+   document.querySelector("input[name=bairro]").value = bairro 
+   // document.querySelector("input[name=rua]").value = 
+})

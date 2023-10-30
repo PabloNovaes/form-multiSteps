@@ -1,79 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>      
-    </script>
-    
-    <script type="module" src="./scripts/main.js" defer></script>
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <link rel="stylesheet" href="style.css" />
-    <title>Formulario</title>
-  </head>
-  <body>
-    <form action="">
-      <header>
-        <p>Solicitar Beneficio</p>
-      </header>
-      <div class="form-step active">
-        <div id="name-our-lastname">
-          <div class="input-wrapper">
-            <label for="name">Nome</label>
-            <input
-              placeholder="Digite seu nome"
-              type="text"
-              name="name"
-            />
-          </div>
-          <div class="input-wrapper">
-            <label for="sobrenome">Sobrenome</label>
-            <input
-              placeholder="Digite seu sobrenome"
-              type="text"
-              name="sobrenome"
-            />
-          </div>
-        </div>
-        <label for="email">E-mail</label>
-        <input
-          placeholder="Digite seu email"
-          type="email"
-          name="email"
-        />
-        <label for="cep">Cep</label>
-        <input placeholder="Digite seu cep" type="text" name="cep" />
-        <button data-action="next">Continuar</button>
-      </div>
-      <div class="form-step hide">
-        <div class="input-wrapper">
-          <label for="numero">Numero</label>
-          <input
-            placeholder="Digite seu numero"
-            type="tel"
-            name="numero"
-          />
-        </div>
-        <div class="input-wrapper">
-          <label for="rua">rua</label>
-          <input placeholder="Digite sua rua" type="text" name="rua" />
-        </div>
-        <label for="text">Escreva algo</label>
-        <textarea
-          placeholder="Envie uma sugestão"
-          name="text"
-          id=""
-          cols="30"
-          rows="10"
-        ></textarea>
 
-        <div id="options">
-          <button data-action="prev">
-            <i data-action="prev" class="ph-bold ph-caret-double-left"></i>
-          </button>
-          <button data-action="send">Enviar</button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+  </script>
+
+  <script type="module" src="./scripts/main.js" async></script>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="style.css" />
+  <title>Formulario</title>
+</head>
+
+<body>
+  <form action="">
+    <header>
+      <p>Solicitar Beneficio</p>
+    </header>
+    <div class="form-step active">
+      <label for="cep">Cep</label>
+      <input placeholder="Digite seu cep" id="cep" type="text" name="cep" />
+      <button data-action="next">Continuar</button>
+    </div>
+    <div class="form-step hide">
+      <div id="name-our-lastname">
+        <div class="input-wrapper">
+          <label for="name">Nome</label>
+          <input placeholder="Digite seu nome" type="text" name="name" />
+        </div>
+        <div class="input-wrapper">
+          <label for="sobrenome">Sobrenome</label>
+          <input placeholder="Digite seu sobrenome" type="text" name="sobrenome" />
         </div>
       </div>
-    </form>
-  </body>
+      <label for="email">E-mail</label>
+      <input placeholder="Digite seu email" type="email" name="email" />
+      <div class="input-wrapper">
+        <label for="rua">Endereço</label>
+        <input placeholder="Digite sua rua" type="text" name="rua" />
+      </div>
+      <div class="input-wrapper">
+        <label for="bairro">Bairro</label>
+        <input placeholder="Digite seu bairro" type="tel" name="bairro" />
+      </div>
+      <div class="input-wrapper">
+        <label for="numero">Numero</label>
+        <input placeholder="Digite seu numero" type="tel" name="numero" />
+      </div>
+
+      <div id="options">
+        <button data-action="prev">
+          <i data-action="prev" class="ph-bold ph-caret-double-left"></i>
+        </button>
+        <button data-action="send">Enviar</button>
+      </div>
+    </div>
+  </form>
+</body>
+
 </html>

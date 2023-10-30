@@ -23,16 +23,17 @@ body {
   height: 100dvh;
   background-color: var(--background);
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   padding-inline: 2rem;
 }
 
 form {
   width: 100%;
   min-width: 34rem;
-  padding: 1rem;
   max-width: 50rem;
-  margin: 0 auto;
+  padding: 1rem;
   color: var(--text-color);
   overflow: hidden;
 
@@ -51,8 +52,7 @@ form {
     font-weight: 400;
   }
 
-  & input,
-  textarea {
+  & input {
     text-indent: 1rem;
     margin-bottom: 1rem;
     border-radius: 0.6rem;
@@ -65,11 +65,6 @@ form {
     &:focus {
       box-shadow: 0 0 0 1px var(--primary-color);
     }
-  }
-  & textarea {
-    resize: none;
-    padding-top: 0.6rem;
-    min-height: 7rem !important;
   }
 
   & button {
@@ -90,7 +85,8 @@ form {
   }
 
   & input,
-  button, textarea {
+  button,
+  textarea {
     border-radius: 1rem;
     transition: all 0.2s ease;
     padding: 1.6rem 0;
@@ -101,7 +97,7 @@ form {
 .form-step {
   display: flex;
   flex-direction: column;
-  height: 34rem;
+  flex: 1 1 0;
 }
 
 .form-step.active {
@@ -115,6 +111,7 @@ form {
 .hide {
   display: none;
 }
+
 input,
 label {
   width: 100%;
@@ -150,12 +147,13 @@ label {
       font-size: 1.8rem;
     }
 
-    & > * {
+    &>* {
       transition: all 0.15s;
     }
 
     &:hover {
       background-color: var(--primary-color);
+
       & i {
         color: var(--text-color);
       }
@@ -183,16 +181,17 @@ label {
 @media (max-width: 370px) {
   form {
     min-width: 30rem;
+
     & input {
       font-size: 1.2rem;
     }
   }
 }
 
-.swal2-popup{
+.swal2-popup {
   max-width: 28rem;
   font-size: 1.2rem;
-  }
+}
 
 .swal2-timer-progress-bar {
   background-color: var(--primary-color) !important;
